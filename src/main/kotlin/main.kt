@@ -5,20 +5,13 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
+import models.First
+import models.MyBucket
+import models.MyInterface
 
 fun main(args: Array<String>) {
     tryDeserialize()
 }
-
-@Serializable
-data class MyBucket(val items: List<MyInterface?>)
-
-@Polymorphic
-interface MyInterface
-
-@Serializable
-data class First(val s1: String) : MyInterface
-
 
 fun tryDeserialize() {
         val jsonStringList = """
